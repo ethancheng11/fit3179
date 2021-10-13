@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Number of Asylum Applications",
+    "width": 1000,
+    "height": 800,
+    "params": [
+      {
+        "name": "YearSelected",
+        "value": 2020,
+        "bind": {"input": "range", "min": 2000, "max": 2020, "step": 1, "name": "Year:  "}
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/ethancheng11/fit3179/main/world_map.json",
+                "format": { "type": "topojson", "feature": "countries" }
+              },
+            "projection": {"type": "equirectangular"},
+            "mark": {"type": "geoshape" }
+        },
+        {
+            "data": {"url": "https://raw.githubusercontent.com/ethancheng11/fit3179/main/Assignment%202%20Datasets/asylum-applications.csv"},
+            "transform": [
+                {
+                    "lookup": "country_of_origin",
+                    "from": {
+                      "data": {
+                        "url": "https://raw.githubusercontent.com/ethancheng11/fit3179/main/world_map.json",
+                        "format": { "type": "topojson", "feature": "countries" }
+                      },
+                      "key": "properties.name"
+                    },
+                    "as": "origin"
+                },
+                {
+                    "lookup": "country_of_asylum",
+                    "from": {
+                      "data": {
+                        "url": "https://raw.githubusercontent.com/ethancheng11/fit3179/main/world_map.json",
+                        "format": { "type": "topojson", "feature": "countries" }
+                      },
+                      "key": "properties.name"
+                    },
+                    "as": "destination"
+                },
+                {"filter": "datum.year == YearSelected"}
+            ],
+            "mark": "line",
+            "encoding": {
+                "shape": { "field": "origin", "type": "geojson" },
+                "x": {"field": "origin"},
+                "x2": {"field": "destination"}
+            }
+        }
+    ]
+}

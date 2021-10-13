@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Number of Asylum Applications",
+  "width": 1000,
+  "height": 800,
+  "params": [
+    {
+      "name": "YearSelected",
+      "value": 2020,
+      "bind": {"input": "range", "min": 2000, "max": 2020, "step": 1, "name": "Year:  "}
+      }
+  ],
+  "data": {"url": "https://raw.githubusercontent.com/ethancheng11/fit3179/main/Assignment%202%20Datasets/asylum-applications.csv"},
+  "transform": [
+      {
+          "joinaggregate": [ { "op": "sum", "field": "applied", "as": "totalapplied" } ],
+          "groupby": ["country_of_asylum"]
+      },
+      {
+          "lookup": "country_of_asylum",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/ethancheng11/fit3179/main/world_map.json",
+              "format": { "type": "topojson", "feature": "countries" }
+            },
+            "key": "properties.name"
+          },
+          "as": "geo"
+      },
+      {"filter": "datum.year == YearSelected"}
+  ],
+  "projection": {"type": "equirectangular"},
+  "mark": {"type": "geoshape", "stroke": "black", "strokeWidth": 0.25},
+  "encoding": {
+      "shape": { "field": "geo", "type": "geojson" },
+      "color": { 
+        "field": "totalapplied", 
+        "type": "quantitative", 
+        "title": "Number of Asylum Applications",
+        "scale": {
+          "type": "log",
+          "range": ["#c1e7ff", "#9dc6e0", "#7aa6c2", "#5886a5", "#346888", "#004c6d"]
+        }
+      },
+      "tooltip": [
+        {"field": "country_of_asylum", "type": "nominal", "title": "Country"},
+        {"field": "totalapplied", "type": "quantitative", "title": "Number of Asylum Applications"}
+      ]
+  }
+}
