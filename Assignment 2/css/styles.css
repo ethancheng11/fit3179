@@ -1,0 +1,17 @@
+h1 {
+	font-family: 'Roboto Slab', serif;
+}
+
+.choropleth_map {
+	top:100px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+}
+
+.bar_chart {
+	top:auto;
+	bottom: auto;
+	left: auto;
+	right: auto;
+}
