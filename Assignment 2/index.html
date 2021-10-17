@@ -19,17 +19,24 @@
 <body>
   <h1>Global Asylum Data</h1>
   <div id="choropleth_map"></div>
-
   <div id="bar_chart"></div>
+  <div id="rule_map"></div>
+  <div id="line_chart1"></div>
+  <div id="line_chart2"></div>
 
   <script type="text/javascript">
 
-    var specVis1 = "js/asylum_applications.json";
-    var specVis2 = "js/asylum_decisions.json"
+    var specVis1 = "js/choropleth_map.json";
+    var specVis2 = "js/bar_chart.json"
+    var specVis3 = "js/rule_map.json"
+    var specVis4 = "js/origin_line_chart.json"
+    var specVis5 = "js/asylum_line_chart.json"
     
     vegaEmbed('#choropleth_map', specVis1);
-    vegaEmbed('#bar_chart', specVis2).then(function(result) {
-    }).catch(console.error);
+    vegaEmbed('#bar_chart', specVis2)
+    vegaEmbed('#rule_map', specVis3)
+    vegaEmbed('#line_chart1', specVis4)
+    vegaEmbed('#line_chart2', specVis5).then(function(result) {}).catch(console.error);
   </script>
 </body>
 

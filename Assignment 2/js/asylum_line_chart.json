@@ -1,0 +1,77 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Number Of Asylum Seekers Entering The Country",
+    "params": [
+        {
+            "name": "CountrySelected",
+            "value": "Australia",
+            "bind": {
+                "input": "select",
+                "options": ["Afghanistan", "Albania", "Algeria", "Egypt", "Bahrain",
+                    "Bangladesh", "Belarus", "Brazil", "Bulgaria", "Cambodia", "China",
+                    "Chile", "Cameroon", "Colombia", "Ethiopia", "Fiji", "Palestine",
+                    "United Kingdom", "Georgia", "Germany", "Ghana", "India",
+                    "Indonesia", "Iran", "Iraq", "Israel", "Jordan", "Kenya",
+                    "Kyrgyzstan", "South Korea", "North Korea", "Lebanon", "Sri Lanka",
+                    "Lithuania", "Latvia", "Malaysia", "Mongolia", "Morocco",
+                    "Myanmar", "Nepal", "Nigeria", "Pakistan", "Philippines",
+                    "Papua New Guinea", "South Africa", "Russia", "Serbia", "Vietnam",
+                    "Sudan", "Syria", "Tanzania", "Thailand", "Timor-Leste", "Tonga",
+                    "Turkey", "Uganda", "Ukraine", "Uzbekistan", "Zimbabwe", "Macedonia", 
+                    "Singapore", "Congo", "Czechia", "New Zealand", "Togo", "Australia", 
+                    "Guinea", "Liberia", "Rwanda", "Sierra Leone", "Somalia",
+                    "United States of America", "Kuwait", "Peru", "Angola", "Armenia",
+                    "Azerbaijan", "Burundi", "Benin", "Bhutan", "Bolivia", "Botswana",
+                    "Chad", "Djibouti", "Ecuador", "Eritrea", "Gambia", "Grenada",
+                    "Guyana", "Cote dIvoire", "Jamaica", "Libya", "Mexico", "Mali",
+                    "Malawi", "Mauritius", "Namibia", "Niger", "Oman", "Senegal",
+                    "Eswatini", "Trinidad and Tobago", "Tunisia",
+                    "Saint Vincent and the Grenadines", "Venezuela", "Yemen", "Zambia",
+                    "Portugal", "Romania", "Solomon Islands",
+                    "Central African Republic", "Cuba", "Dominican Republic",
+                    "Honduras", "Mauritania", "Saudi Arabia", "Turkmenistan",
+                    "Ireland", "Canada", "Italy", "Kazakhstan", "Poland",
+                    "El Salvador", "Seychelles", "Burkina Faso", "Saint Lucia",
+                    "United Arab Emirates", "Guatemala", "Maldives",
+                    "Antigua and Barbuda", "Barbados", "Comoros", "Mozambique",
+                    "South Sudan", "Nicaragua", "Saint Kitts and Nevis", "Tajikistan",
+                    "Bosnia and Herzegovina", "Gabon", "Guinea-Bissau", "Croatia",
+                    "Moldova", "Hungary", "Western Sahara", "Slovakia", "Haiti",
+                    "Netherlands", "Lesotho", "Montenegro", "Spain",
+                    "Equatorial Guinea", "Laos", "Madagascar", "Suriname", "Kiribati",
+                    "Greece", "Sweden", "France", "Argentina", "Bahamas", "Panama",
+                    "Uruguay", "Cabo Verde", "Hong Kong", "Norway", "Japan",
+                    "Costa Rica", "Estonia", "Austria", "Luxembourg", "Belgium",
+                    "Belize", "Denmark", "Paraguay", "Vanuatu", "Cyprus", "Brunei",
+                    "Guadeloupe", "Slovenia", "Micronesia", "Finland", "Monaco",
+                    "Cayman Islands", "Macao", "Tibetan", "Samoa", "Switzerland",
+                    "Malta", "Qatar", "San Marino", "Cook Islands", "Iceland",
+                    "Bermuda", "Puerto Rico", "Turks and Caicos Islands", "Nauru",
+                    "Sao Tome and Principe", "Tuvalu", "Andorra", "French Guiana",
+                    "Holy See", "Liechtenstein", "Anguilla", "Marshall Islands",
+                    "Curacao" , "Palau", "Gibraltar", "Niue"],
+                "name": "Country:  "
+            }
+        }
+    ],
+    "data": { "url": "https://raw.githubusercontent.com/ethancheng11/fit3179/main/Assignment%202%20Datasets/asylum-applications.csv" },
+    "transform": [
+       {
+           "filter": "datum.country_of_asylum == CountrySelected"
+       }
+    ],
+    "mark": {"type": "line", "point": true, "tooltip": true},
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+        },
+        "y": {
+            "aggregate": "sum",
+            "field": "applied",
+            "type": "quantitative",
+            "title": "Number of Applicants"
+        }
+    }
+}
