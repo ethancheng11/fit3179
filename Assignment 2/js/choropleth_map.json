@@ -1,7 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Number of Asylum Applicants",
   "width": 1200,
-  "height": 800,
+  "height": 600,
   "config": {
     "background": "#FAF9F6"
   },

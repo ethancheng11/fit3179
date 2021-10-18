@@ -1,13 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Number Of Asylum Seekers Leaving The Country",
+    "width": 500,
     "config": {
         "background": "#FAF9F6"
     },
     "params": [
         {
             "name": "CountrySelected",
-            "value": "Iran",
+            "value": "Iraq",
             "bind": {
                 "input": "select",
                 "options": ["Afghanistan", "Albania", "Algeria", "Egypt", "Bahrain",

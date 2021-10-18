@@ -5,7 +5,11 @@ h1, h3 {
 
 p {
 	font-family: 'Roboto', sans-serif;
-	font-weight: lighter;
+	font-weight: normal;
+}
+
+strong {
+	font-weight:bold;
 }
 
 body {
@@ -23,4 +27,9 @@ body {
 
 .map {
 	margin-bottom: 20px;
+}
+
+.text {
+	margin-top: 35px;
+	margin-left: 200px;
 }

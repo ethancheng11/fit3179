@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Number of People From a Country Applying to Leave",
+    "title": "Top 10 Countries per Decision",
     "width": 1200,
     "height": 800,
     "config": {
