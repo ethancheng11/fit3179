@@ -3,6 +3,9 @@
     "title": "Number of People From a Country Applying to Leave",
     "width": 1200,
     "height": 800,
+    "config": {
+        "background": "#FAF9F6"
+    },
     "params": [
         {
             "name": "YearSelected",

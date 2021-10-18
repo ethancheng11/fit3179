@@ -1,6 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Number Of Asylum Seekers Leaving The Country",
+    "config": {
+        "background": "#FAF9F6"
+    },
     "params": [
         {
             "name": "CountrySelected",

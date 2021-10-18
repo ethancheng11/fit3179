@@ -1,25 +1,26 @@
-h1 {
+h1, h3 {
 	font-family: 'Roboto Slab', serif;
+	font-weight: bolder;
 }
 
-.choropleth_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
+p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
 }
 
-.bar_chart {
-	top:auto;
-	bottom: auto;
-	left: auto;
-	right: auto;
+body {
+	background-color: grey;
 }
 
-.rule_map {
-	top:auto;
-	bottom: auto;
-	left: auto;
-	right: auto;
+.page {
+	width: 1380px;
+	background-color: #FAF9F6;
+	margin: auto;
+	padding: 50px;
+	padding-left: 15px;
+	padding-top: 35px
 }
 
+.map {
+	margin-bottom: 20px;
+}

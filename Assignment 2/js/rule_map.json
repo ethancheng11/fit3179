@@ -1,8 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Number of Asylum Applications",
-  "width": 1200,
+  "width": 1000,
   "height": 800,
+  "config": {
+    "background": "#FAF9F6"
+  },
   "data": { "url": "https://raw.githubusercontent.com/ethancheng11/fit3179/main/Assignment%202%20Datasets/asylum-applications.csv" },
   "params": [
     {
@@ -68,7 +70,7 @@
       },
       {"filter": "datum.year == YearSelected"}
     ],
-    "mark": {"type": "rule"},
+    "mark": {"type": "rule", "tooltip": false},
     "encoding": {
       "longitude": {
         "field": "origin_longitude",
@@ -87,13 +89,14 @@
         "title": "Country of Asylum",
         "legend": {
           "columns": 3,
-          "columnPadding": 15,
-          "symbolLimit": 211
+          "columnPadding": 10,
+          "symbolLimit": 250,
+          "orient": "left"
         }
       },
       "opacity": {
         "condition": {"param": "CountrySelected", "value": 1},
-        "value": 0
+        "value": 0.01
       },
       "tooltip": [
         {"field": "country_of_origin", "type": "nominal", "title": "Country of Origin"},
